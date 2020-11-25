@@ -1,8 +1,11 @@
+import { Response, NextFunction} from "express";
+import {RequestInterface} from "../../interfaces/RequestInterface";
+
 class Controller{
-    public signUp = async() => {
+    public signUp : any = async(req: RequestInterface, res: Response, next: NextFunction): Promise<any> => {
 
     }
-    public signIn = async() => {
+    public signIn: any = async(req: RequestInterface, res: Response, next: NextFunction): Promise<any> => {
 
     }
 }

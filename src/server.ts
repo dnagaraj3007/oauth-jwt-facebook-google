@@ -12,6 +12,7 @@ class Server{
             const port = process.env.PORT || 3000
             const app = express();
             app.use(bodyParser.json());
+            app.use(express.urlencoded({ extended: false }))
             app.use(cors());
             app.use(morgan('dev'));
             await app.use('/api/v1', userRoutes.register())
