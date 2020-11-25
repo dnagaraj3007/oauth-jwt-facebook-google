@@ -6,7 +6,7 @@ import User from '../../models/user'
 
 
 class Controller{
-    public signToken(id: String): String {
+    private signToken(id: String): String {
        const token= jwt.sign({
             iss: 'NagaRaj',
             sub: id,
@@ -33,6 +33,12 @@ class Controller{
     }
     public signIn: any = async(req: RequestInterface, res: Response, next: NextFunction): Promise<any> => {
 
+    }
+
+    public accessResource: any = async(req: RequestInterface, res: Response, next: NextFunction): Promise<any> => {
+        res.status(200).json({
+            message: 'Secret route can be accessed'
+        })
     }
 }
 

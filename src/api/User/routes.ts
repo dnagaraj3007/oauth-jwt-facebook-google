@@ -1,6 +1,8 @@
 import expPromiseRouter from 'express-promise-router';
+import passport from 'passport';
 import Controller from './controller';
 import Validator from './validator';
+
 
 const router = expPromiseRouter();
 
@@ -11,7 +13,8 @@ class Routes{
             var profileSchema = Validator.profile;
             router.post('/signup', Validator.validateSchema(profileSchema), Controller.signUp);
             router.post('/signin/username', Controller.signIn);
-            return router
+            router.post('/user/resource', passport.authenticate('jwt', {session: false}), Controller.accessResource);
+            return router;
         }catch(e){
             console.log(e);
         }
